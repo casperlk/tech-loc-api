@@ -1,0 +1,27 @@
+print('i: '+ str(i))
+            print('j: '+ str(j))
+            techReport['features'][i]['properties']['name']
+            techReport['features'][j]['properties']['name']
+            print()
+
+
+# def findColocatedTechs():
+    # dictionary length?
+    # techLocationData[1]['features'][1]['geometry']['coordinates'])
+    # for tech in techs
+        # for otherTech in techs
+            # dist = (hs.haversine(loc1,loc2) * 1000)
+            # if dist < 1000ft (304.8m)
+                # add it to an object containing pairs of nearby techs
+    # return object containing pairs of techs
+
+
+
+
+# sends each batch of data timed appropriately
+def timeReports(): # techLocationData):
+    global numberOfReports
+    for x in range(0, numberOfReports):
+        colocatedTechs = findColocatedTechs(techLocationData[x])
+        #TODO send tech locations and colocated techs to frontend
+        time.sleep(0)
