@@ -1,8 +1,8 @@
 [{
     "features": [
 	{ "type": "Feature", "properties": { "id": 0,  "name": "Tech 3", "tsecs": 1592078400, "bearing": 0 }, "geometry": { "type": "Point", "coordinates": [ -115.606391900599817, 32.673693943392962 ] } },
-	{ "type": "Feature", "properties": {  "id": 0,  "name": "Tech 1", "bearing": 87.0, "tsecs": 1592078400  }, "geometry": { "type": "Point", "coordinates": [ -115.606391900599817, 32.673693943392962 ] } },
-	{ "type": "Feature", "properties": { "id": 0,   "name": "Tech 2", "bearing": 270, "tsecs": 1592078400 }, "geometry": { "type": "Point", "coordinates": [ -115.606391900599817, 32.673693943392962 ] } }
+	{ "type": "Feature", "properties": {  "id": 0,  "name": "Tech 1", "bearing": 87.0, "tsecs": 1592078400  }, "geometry": { "type": "Point", "coordinates": [ -115.585908073767968, 32.679083641964432 ] } },
+	{ "type": "Feature", "properties": { "id": 0,   "name": "Tech 2", "bearing": 270, "tsecs": 1592078400 }, "geometry": { "type": "Point", "coordinates": [ -115.590876702138573, 32.676567128293193 ] } }
     ]
 }, {
     "features": [
