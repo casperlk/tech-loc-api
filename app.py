@@ -1,9 +1,15 @@
 import json, time
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, Response, request
 import haversine as hs
-# from flask.ext.login import (current_user, LoginManager, login_user, logout_user, login_required)
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+cors = CORS(app, resources={
+    r"/*": {
+        "origins": "*"
+    }
+})
 
 maxTimeDiff = 0     # maximum permissible time difference for two location reports for techs to be considered colocated (in seconds, within a given payload)
 reportIndex = 0     # Index of current technician location geojson
@@ -15,6 +21,7 @@ with open('api_techician_response_data.json') as f:
     techLocationData = json.load(f)
 
 numberOfReports = len(techLocationData)     # Number of tech location reports in example file
+
 
 @app.route('/api/v' + apiVersionNumber + '/solar_farms/' + farmID + '/colocated_technicians')
 def query_colocated_techs():
@@ -31,6 +38,7 @@ def query_tech_loc():
 
 def findColocatedTechs(techReport):
     techPairs = []      # techPairs contains pairs of indices of colocated technicians
+    
     global maxTimeDiff
 
     numberOfTechs = len(techReport['features'])
@@ -43,7 +51,7 @@ def findColocatedTechs(techReport):
                 loc1 = techReport['features'][i]['geometry']['coordinates']
                 loc2 = techReport['features'][j]['geometry']['coordinates']
                 if hs.haversine(loc1,loc2) < 0.3048:
-                    techPairs.append([i,j])
+                    techPairs.append([techReport['features'][i]['properties']['name'],techReport['features'][j]['properties']['name']])
     return techPairs
 
 if __name__ == "__main__":
